@@ -51,6 +51,24 @@
           }
         }
     </script>
+    <script>
+        function reqPermission() {
+        if (
+          DeviceMotionEvent &&
+          DeviceMotionEvent.requestPermission &&
+          typeof DeviceMotionEvent.requestPermission === 'function'
+        ) {
+          DeviceMotionEvent.requestPermission();
+        }
+        if (
+          DeviceOrientationEvent &&
+          DeviceOrientationEvent.requestPermission &&
+          typeof DeviceOrientationEvent.requestPermission === 'function'
+        ) {
+          DeviceOrientationEvent.requestPermission();
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="loader">
@@ -68,7 +86,7 @@
         <p><img src="mousedrag.png" width="70" alt="Click-and-drag your mouse"></p>
         <p>In the meantime, <strong><em>click and drag</em></strong> to have a look around!</p>
         <p>
-          <button class="confirm">Continue</button>
+          <button class="confirm" onclick="reqPermission();">Continue</button>
         </p>
       </div>
     </div>
